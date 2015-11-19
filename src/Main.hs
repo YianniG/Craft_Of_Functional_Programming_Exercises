@@ -52,7 +52,7 @@ module Main where
               deriving(Show)
 
   px00, px01, px1, px2, px3, px4 :: Pixel
-
+  
   px00 = Live 0 (0,0) Dead px01 Dead Dead
   px01 = Live 1 (0,1) px00 px02 px03 Dead
   px02 = Live 2 (0,2) px01 Dead Dead Dead
@@ -63,7 +63,7 @@ module Main where
   px3 = Live 3 (1,1) px4 Dead Dead px2
   px4 = Live 4 (1,0) Dead px3 Dead px1
 
-
+  -- Need accumulator to manage where I've been.
   traversePixels :: Pixel -> [Int]
   traversePixels Dead = []
   traversePixels (Live v _ Dead Dead Dead Dead) = [v]
